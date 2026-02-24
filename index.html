@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Tracker</title>
     <link rel="shortcut icon" href="job-logo.jpg" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
@@ -22,15 +23,38 @@
     </style>
 </head>
 
-<body>
+<body class="min-h-screen max-w-5xl mx-auto bg-white">
     <header>
-        <div>
-            <h2>Job Application Tracker</h2>
-            <div>
+        <div class="p-14">
+            <h2 class="text-3xl font-bold mb-5">Job Application Tracker</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14">
+                <div class="p-5 rounded-lg max-w-sm shadow">
+                    <p class="text-sm text-gray-700">Total</p>
+                    <h2 class="font-bold text-2xl text-black  ">8</h2>
+                </div>
+                <div class="p-5 rounded-lg max-w-sm shadow">
+                    <p class="text-sm text-gray-800">Interview</p>
+                    <h2 class="font-bold text-2xl text-green-600 ">0</h2>
+                </div>
+                <div class="p-5 rounded-lg max-w-sm shadow">
+                    <p class="text-sm text-gray-700">Rejected</p>
+                    <h2 class="font-bold text-2xl text-red-600 ">0</h2>
+                </div>
 
             </div>
         </div>
     </header>
+    <section>
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-semibold">Available Jobs</h3>
+            <p class="text-sm text-gray-500">8 jobs</p>
+        </div>
+        <div class="flex gap-2 mb-4">
+            <button class="bg-blue-500 text-white rounded-md text-sm px-8 py-3">All</button>
+            <button class="bg-white text-gray-500 border rounded-md text-sm px-2 py-3 hover:bg-gray-800">Interview</button>
+            <button class="bg-white text-gray-500 border rounded-md text-sm px-2 py-3 hover:bg-gray-800">Rejected</button>
+        </div>
+    </section> 
 </body>
 
 </html>
