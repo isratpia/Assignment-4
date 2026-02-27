@@ -30,158 +30,179 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-7">
                 <div class="p-5 rounded-lg max-w-sm shadow">
                     <p class="text-sm text-gray-700">Total</p>
-                    <h2 class="font-bold text-2xl text-black  ">8</h2>
+                    <h2 id="total" class="font-bold text-2xl text-black">0</h2>
                 </div>
                 <div class="p-5 rounded-lg max-w-sm shadow">
                     <p class="text-sm text-gray-800">Interview</p>
-                    <h2 class="font-bold text-2xl text-green-600 ">0</h2>
+                    <h2 id="interview-count" class="font-bold text-2xl text-green-600">0</h2>
                 </div>
                 <div class="p-5 rounded-lg max-w-sm shadow">
                     <p class="text-sm text-gray-700">Rejected</p>
-                    <h2 class="font-bold text-2xl text-red-600 ">0</h2>
+                    <h2 id="reject-count" class="font-bold text-2xl text-red-600">0</h2>
                 </div>
 
             </div>
         </div>
     </header>
     <hr class="border-1 border-gray-200">
+    <main>
+        <section class="mx-2 mt-7">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold">Available Jobs</h3>
+                <span class="text-sm text-gray-500">8 jobs</span>
+            </div>
+            <div class="flex gap-2 mb-4">
+                <button id="all-filter-btn" onclick="toggleStyle('all-filter-btn')"
+                    class="bg-blue-500 text-white rounded-md border text-sm px-8 py-3">All</button>
+                <button id="interview-filter-btn" onclick="toggleStyle('interview-filter-btn')"
+                    class="bg-white text-gray-500 border rounded-md text-sm px-2 py-3 hover:bg-gray-400">Interview</button>
+                <button id="reject-filter-btn" onclick="toggleStyle('reject-filter-btn')"
+                    class="bg-white text-gray-500 border rounded-md text-sm px-2 py-3 hover:bg-gray-400">Rejected</button>
+            </div>
+        </section>
+        <section id="filter-section">
+
+        </section>
+        <section id="all-cards" class=" grid grid-cols-1 gap-4">
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h4 class="company-name text-lg text-black font-bold flex justify-between items-center">PixelCraft Labs
+                    <span class="hover:text-red-500 cursor-pointer transition-colors"><i
+                            class="fa-solid fa-trash-can"></i></span></h4>
+                <p class="designation text-base font-bold text-gray-500">Frontend Developer</p><br>
+                <p class="salary text-sm text-gray-500"> Dhaka, Bangladesh / Full-time / 45,000 - 75,000 tk per month
+                </p>
+                <span class="status inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT
+                    APPLIED</span>
+                <p class="description text-sm text-gray-500 mb-5">Build responsive websites using HTML, CSS, JavaScript,
+                    and React. Collaborate with UI/UX teams to deliver modern web interfaces.
+                <p>
+                <div class="flex gap-2">
+                    <button class="interview-btn text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
+                    <button class="reject-btn text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h4 class="company-name text-lg text-black font-bold flex justify-between items-center">CodeNest Solutions <span class="hover:text-red-500 cursor-pointer transition-colors"><i class="fa-solid fa-trash-can"></i></span></h4>
+                <p class="designation text-base font-bold text-gray-500">Full Stack Developer</p><br>
+                <p class="salary text-sm text-gray-500"> Chattogram, Bangladesh / Full-time / 55,000 - 95,000 tk per month</p>
+                <span class="status inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
+                <p class="description text-sm text-gray-500 mb-5">Develop and maintain web applications using MERN stack and REST APIs.</p>
+                <div class="flex gap-2">
+                    <button class="interview-btn text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
+                    <button class="reject-btn text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h4 class="company-name text-lg text-black font-bold flex justify-between items-center">CreativeByte Studio <span
+                        class="hover:text-red-500 cursor-pointer transition-colors"><i
+                            class="fa-solid fa-trash-can"></i></span></h4>
+                <p class="designation text-base font-bold text-gray-500">Graphic Designer</p><br>
+                <p class="salary text-sm text-gray-500">Dhaka, Bangladesh / Full-time / 30,000 - 50,000 tk per month</p>
+                <span class="status inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
+                <p class="description text-sm text-gray-500 mb-5">Design logos, branding materials, social media creatives, and web
+                    banners.</p>
+                <div class="flex gap-2">
+                    <button
+                        class="interview-btn text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
+                    <button
+                        class="reject-btn text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h4 class="company-name text-lg text-black font-bold flex justify-between items-center">WebNova Technologies <span
+                        class="hover:text-red-500 cursor-pointer transition-colors"><i
+                            class="fa-solid fa-trash-can"></i></span></h4>
+                <p class="designation text-base font-bold text-gray-500">UI/UX Designer</p><br>
+                <p class="salary text-sm text-gray-500">Sylhet, Bangladesh / Full-time / 40,000 - 70,000 tk per month</p>
+                <span class="status inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
+                <p class="description text-sm text-gray-500 mb-5">Create wireframes, prototypes, and interactive UI designs for web
+                    and
+                    mobile platforms.</p>
+                <div class="flex gap-2">
+                    <button
+                        class="interview-btn text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
+                    <button
+                        class="reject-btn text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h4 class="company-name text-lg text-black font-bold flex justify-between items-center">DevSphere IT <span
+                        class="hover:text-red-500 cursor-pointer transition-colors"><i
+                            class="fa-solid fa-trash-can"></i></span></h4>
+                <p class="designation text-base font-bold text-gray-500"></p>Backend Developer<br>
+                <p class="salary text-sm text-gray-500">Dhaka, Bangladesh / Full-time / 50,000 - 85,000 tk per month</p>
+                <span class="status inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
+                <p class="description text-sm text-gray-500 mb-5">Build scalable server-side applications using Node.js and database
+                    technologies.</p>
+                <div class="flex gap-2">
+                    <button
+                        class="interview-btn text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
+                    <button
+                        class="reject-btn text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h4 class="company-name text-lg text-black font-bold flex justify-between items-center">NextGen Coders BD <span
+                        class="hover:text-red-500 cursor-pointer transition-colors"><i
+                            class="fa-solid fa-trash-can"></i></span></h4>
+                <p class="designation text-base font-bold text-gray-500">WordPress Developer</p><br>
+                <p class="salary text-sm text-gray-500">Rajshahi, Bangladesh / Full-time / 35,000 - 60,000 tk per month</p>
+                <span class="status inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
+                <p class="description text-sm text-gray-500 mb-5">Develop custom WordPress themes and plugins for business websites.
+                </p>
+                <div class="flex gap-2">
+                    <button
+                        class="interview-btn text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
+                    <button
+                        class="reject-btn text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h4 class="company-name text-lg text-black font-bold flex justify-between items-center">DigitalSpark Agency <span
+                        class="hover:text-red-500 cursor-pointer transition-colors"><i
+                            class="fa-solid fa-trash-can"></i></span></h4>
+                <p class="designation text-base font-bold text-gray-500">Web Designer</p><br>
+                <p class="salary text-sm text-gray-500">:Khulna, Bangladesh / Contractual / 25,000 - 45,000 tk per month</p>
+                <span class="status inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
+                <p class="description text-sm text-gray-500 mb-5">Design modern website layouts and landing pages for startups and
+                    small
+                    businesses.</p>
+                <div class="flex gap-2">
+                    <button
+                        class="interview-btn text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
+                    <button
+                        class="reject-btn text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h4 class="company-name text-lg text-black font-bold flex justify-between items-center">TechVerse Creative <span
+                        class="hover:text-red-500 cursor-pointer transition-colors"><i
+                            class="fa-solid fa-trash-can"></i></span></h4>
+                <p class="designation text-base font-bold text-gray-500">Junior Software Engineer</p><br>
+                <p class="salary text-sm text-gray-500">Dhaka, Bangladesh / Internship / 15,000 - 25,000 tk per month</p>
+                <span class="status inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
+                <p class="description text-sm text-gray-500 mb-5"> Assist senior developers in building web applications and fixing
+                    bugs.</p>
+                <div class="flex gap-2">
+                    <button
+                        class="interview-btn text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
+                    <button
+                        class="reject-btn text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
+                </div>
+            </div>
+        </section>
+    </main>
     <section class="mx-2 mt-7">
         <div class="flex justify-between items-center mb-6">
             <h3 class="text-xl font-semibold">Available Jobs</h3>
-            <p class="text-sm text-gray-500">8 jobs</p>
-        </div>
-        <div class="flex gap-2 mb-4">
-            <button class="bg-blue-500 text-white rounded-md text-sm px-8 py-3">All</button>
-            <button class="bg-white text-gray-500 border rounded-md text-sm px-2 py-3 hover:bg-gray-400">Interview</button>
-            <button class="bg-white text-gray-500 border rounded-md text-sm px-2 py-3 hover:bg-gray-400">Rejected</button>
-        </div>
-    </section>
-    <section class=" grid grid-cols-1 gap-4">
-        <div class="bg-white p-6 rounded-lg shadow">
-            <h4 class="text-lg text-black font-bold flex justify-between items-center">PixelCraft Labs <span class="hover:text-red-500 cursor-pointer transition-colors"><i class="fa-solid fa-trash-can"></i></span></h4>
-            <p class="text-base font-bold text-gray-500">Frontend Developer</p><br>
-            <p class="text-sm text-gray-500"> Dhaka, Bangladesh / Full-time / 45,000 – 75,000 tk per month</p>
-            <span class="inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
-            <p class="text-sm text-gray-500 mb-5">Build responsive websites using HTML, CSS, JavaScript, and React.
-                Collaborate with UI/UX teams to deliver modern web interfaces.</p>
-            <div class="flex gap-2">
-                <button
-                    class="text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
-                <button
-                    class="text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
-            </div>
-
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-            <h4 class="text-lg text-black font-bold flex justify-between items-center">CodeNest Solutions <span class="hover:text-red-500 cursor-pointer transition-colors"><i class="fa-solid fa-trash-can"></i></span></h4>
-            <p class="text-base font-bold text-gray-500">Full Stack Developer</p><br>
-            <p class="text-sm text-gray-500"> Chattogram, Bangladesh / Full-time / 55,000 – 95,000 tk per month</p>
-            <span class="inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
-            <p class="text-sm text-gray-500 mb-5">Develop and maintain web applications using MERN stack and REST APIs.
-            </p>
-            <div class="flex gap-2">
-                <button
-                    class="text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
-                <button
-                    class="text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
-            </div>
-
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-            <h4 class="text-lg text-black font-bold flex justify-between items-center">CreativeByte Studio <span class="hover:text-red-500 cursor-pointer transition-colors"><i class="fa-solid fa-trash-can"></i></span></h4>
-            <p class="text-base font-bold text-gray-500">Graphic Designer</p><br>
-            <p class="text-sm text-gray-500">Dhaka, Bangladesh / Full-time / 30,000 – 50,000 tk per month</p>
-            <span class="inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
-            <p class="text-sm text-gray-500 mb-5">Design logos, branding materials, social media creatives, and web
-                banners.</p>
-            <div class="flex gap-2">
-                <button
-                    class="text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
-                <button
-                    class="text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
-            </div>
-
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-            <h4 class="text-lg text-black font-bold flex justify-between items-center">WebNova Technologies <span class="hover:text-red-500 cursor-pointer transition-colors"><i class="fa-solid fa-trash-can"></i></span></h4>
-            <p class="text-base font-bold text-gray-500">UI/UX Designer</p><br>
-            <p class="text-sm text-gray-500">Sylhet, Bangladesh / Full-time / 40,000 – 70,000 tk per month</p>
-            <span class="inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
-            <p class="text-sm text-gray-500 mb-5">Create wireframes, prototypes, and interactive UI designs for web and mobile platforms.</p>
-            <div class="flex gap-2">
-                <button
-                    class="text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
-                <button
-                    class="text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
-            </div>
-
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-            <h4 class="text-lg text-black font-bold flex justify-between items-center">DevSphere IT <span class="hover:text-red-500 cursor-pointer transition-colors" ><i class="fa-solid fa-trash-can"></i></span></h4>
-            <p class="text-base font-bold text-gray-500"></p>Backend Developer<br>
-            <p class="text-sm text-gray-500">Dhaka, Bangladesh / Full-time / 50,000 – 85,000 tk per month</p>
-            <span class="inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
-            <p class="text-sm text-gray-500 mb-5">Build scalable server-side applications using Node.js and database technologies.</p>
-            <div class="flex gap-2">
-                <button
-                    class="text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
-                <button
-                    class="text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
-            </div>
-
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-            <h4 class="text-lg text-black font-bold flex justify-between items-center">NextGen Coders BD <span class="hover:text-red-500 cursor-pointer transition-colors"><i class="fa-solid fa-trash-can"></i></span></h4>
-            <p class="text-base font-bold text-gray-500">WordPress Developer</p><br>
-            <p class="text-sm text-gray-500">Rajshahi, Bangladesh / Full-time / 35,000 – 60,000 tk per month</p>
-            <span class="inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
-            <p class="text-sm text-gray-500 mb-5">Develop custom WordPress themes and plugins for business websites.</p>
-            <div class="flex gap-2">
-                <button
-                    class="text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
-                <button
-                    class="text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
-            </div>
-
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-            <h4 class="text-lg text-black font-bold flex justify-between items-center">DigitalSpark Agency <span class="hover:text-red-500 cursor-pointer transition-colors"><i class="fa-solid fa-trash-can"></i></span></h4>
-            <p class="text-base font-bold text-gray-500">Web Designer</p><br>
-            <p class="text-sm text-gray-500">:Khulna, Bangladesh / Contractual / 25,000 – 45,000 tk per month</p>
-            <span class="inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
-            <p class="text-sm text-gray-500 mb-5">Design modern website layouts and landing pages for startups and small businesses.</p>
-            <div class="flex gap-2">
-                <button
-                    class="text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
-                <button
-                    class="text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
-            </div>
-
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-            <h4 class="text-lg text-black font-bold flex justify-between items-center">TechVerse Creative <span class="hover:text-red-500 cursor-pointer transition-colors"><i class="fa-solid fa-trash-can"></i></span></h4>
-            <p class="text-base font-bold text-gray-500">Junior Software Engineer</p><br>
-            <p class="text-sm text-gray-500">Dhaka, Bangladesh / Internship / 15,000 – 25,000 tk per month</p>
-            <span class="inline-block text-black text-sm rounded-md mb-2 bg-blue-100 px-3 py-2 ">NOT APPLIED</span>
-            <p class="text-sm text-gray-500 mb-5"> Assist senior developers in building web applications and fixing bugs.</p>
-            <div class="flex gap-2">
-                <button
-                    class="text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
-                <button
-                    class="text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
-            </div>
-
-        </div>
-    </section>
-    <section class="mx-2 mt-7">
-        <div class="flex justify-between items-center mb-6">
-            <h3 class="text-xl font-semibold">Available Jobs</h3>
-            <p class="text-sm text-gray-500">0 jobs</p>
+            <span class="text-sm text-gray-500">0 jobs</span>
         </div>
         <div class="flex gap-2 mb-4">
             <button class="bg-white text-gray-500 border rounded-md text-sm px-8 py-3 hover:bg-gray-400">All</button>
-            <button class="bg-white text-gray-500 border rounded-md text-sm px-2 py-3 hover:bg-gray-400">Interview</button>
-            <button class="bg-white text-gray-500 border rounded-md text-sm px-2 py-3 hover:bg-gray-400">Rejected</button>
+            <button
+                class="bg-white text-gray-500 border rounded-md text-sm px-2 py-3 hover:bg-gray-400">Interview</button>
+            <button
+                class="bg-white text-gray-500 border rounded-md text-sm px-2 py-3 hover:bg-gray-400">Rejected</button>
         </div>
         <div class=" flex flex-col justify-center items-center text-center min-h-96">
             <img src="jobs.png" alt="" class="mb-5">
@@ -189,6 +210,9 @@
             <p class="text-gray-500 text-sm">Check back soon for new job opportunities</p>
         </div>
     </section>
+
+    <!-- <script src="Scripts/machine.js"></script> -->
+    <script src="Scripts/home.js"></script>
 </body>
 
 </html>
