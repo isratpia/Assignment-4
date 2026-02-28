@@ -1,5 +1,6 @@
 let interviewList = [];
 let rejectList = [];
+let currentStatus = "all";
 
 let total = document.getElementById('total');
 let interviewCount = document.getElementById('interview-count');
@@ -30,6 +31,7 @@ function toggleStyle(id) {
     rejectFilterBtn.classList.remove('bg-blue-500', 'text-white');
 
     const clickedElement = document.getElementById(id);
+    currentStatus = id;
 
     clickedElement.classList.remove('bg-white', 'text-gray-500');
     clickedElement.classList.add('bg-blue-500', 'text-white');
@@ -37,6 +39,7 @@ function toggleStyle(id) {
     if (id == "interview-filter-btn") {
         allCardSection.classList.add('hidden');
         filterSection.classList.remove('hidden');
+        renderInterview();
     }
     else if (id == "all-filter-btn") {
         allCardSection.classList.remove('hidden');
@@ -45,21 +48,18 @@ function toggleStyle(id) {
     else if (id == "reject-filter-btn") {
         allCardSection.classList.add('hidden');
         filterSection.classList.remove('hidden');
+        renderRejected();
     }
 }
 mainContainer.addEventListener('click', function (event) {
 
     if (event.target.classList.contains('interview-btn')) {
         const parentNode = event.target.parentNode.parentNode;
-
         const companyName = parentNode.querySelector('.company-name').innerText;
         const designation = parentNode.querySelector('.designation').innerText;
         const salary = parentNode.querySelector('.salary').innerText;
         const status = parentNode.querySelector('.status').innerText;
         const description = parentNode.querySelector('.description').innerText;
-
-        parentNode.querySelector('.status').innerText = 'Interview';
-        const statusElement = parentNode.querySelector('.status');
 
         const cardInfo = {
             companyName,
@@ -68,7 +68,7 @@ mainContainer.addEventListener('click', function (event) {
             status: 'Interview',
             description
         }
-
+        const statusElement = parentNode.querySelector('.status');
         if (statusElement) {
             statusElement.innerText = 'Interview';
             statusElement.className = 'status text-green-600 text-sm font-bold rounded px-3 py-1 bg-transparent border border-green-600';
@@ -78,22 +78,22 @@ mainContainer.addEventListener('click', function (event) {
         if (!companyExist) {
             interviewList.push(cardInfo);
         }
-        calculateCards();
+        rejectList = rejectList.filter(item => item.companyName != cardInfo.companyName)
 
-        renderInterview();
+        calculateCards();
+        if (currentStatus == "reject-filter-btn") {
+            renderRejected();
+        }
     }
+    
     else if (event.target.classList.contains('reject-btn')) {
         const parentNode = event.target.parentNode.parentNode;
-
         const companyName = parentNode.querySelector('.company-name').innerText;
         const designation = parentNode.querySelector('.designation').innerText;
         const salary = parentNode.querySelector('.salary').innerText;
         const status = parentNode.querySelector('.status').innerText;
         const description = parentNode.querySelector('.description').innerText;
-
-        parentNode.querySelector('.status').innerText = 'Rejected';
-        const statusElement = parentNode.querySelector('.status');
-
+        
         const cardInfo = {
             companyName,
             designation,
@@ -102,19 +102,22 @@ mainContainer.addEventListener('click', function (event) {
             description
         }
 
+        const statusElement = parentNode.querySelector('.status');
         if (statusElement) {
             statusElement.innerText = 'Rejected';
             statusElement.className = 'status text-red-600 text-sm font-bold rounded px-3 py-1 bg-transparent border border-red-600';
         }
         const companyExist = rejectList.find(item => item.companyName == cardInfo.companyName);
-
         if (!companyExist) {
             rejectList.push(cardInfo);
         }
-        rejectList = rejectList.filter(item => item.companyName != cardInfo.companyName)      
-        calculateCards();
+        interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName)
 
-        renderRejected();
+        calculateCards();
+        if (currentStatus == "interview-filter-btn") {
+            renderInterview();
+        }
+        
     }
 })
 function renderInterview() {
@@ -127,11 +130,11 @@ function renderInterview() {
                         class="hover:text-red-500 cursor-pointer transition-colors"><i class="fa-solid fa-trash-can"></i></span></h4>
                         <p class="designation text-base font-bold text-gray-500">${inter.designation}</p><br>
                         <p class="salary text-sm text-gray-500">${inter.salary}</p>
-                        <span class="status text-green-600 text-sm font-bold rounded px-3 py-1 bg-transparent border border-green-600">${inter.status}</span>
+                        <span class="status inline-block text-green-600 text-sm font-bold rounded px-3 py-1 bg-transparent border border-green-600">${inter.status}</span>
                         <p class="description text-sm text-gray-500 mb-5">${inter.description}</p>
                         <div class="flex gap-2">
-                            <button id="interview-btn-1" class="text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
-                            <button id="reject-btn-1" class="text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
+                            <button class="interview-btn text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
+                            <button class="reject-btn text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
                         </div>
                 `
         filterSection.appendChild(div);
@@ -148,11 +151,11 @@ function renderRejected() {
                         class="hover:text-red-500 cursor-pointer transition-colors"><i class="fa-solid fa-trash-can"></i></span></h4>
                         <p class="designation text-base font-bold text-gray-500">${reject.designation}</p><br>
                         <p class="salary text-sm text-gray-500">${reject.salary}</p>
-                        <span class="status text-red-600 text-sm font-bold rounded px-3 py-1 bg-transparent border border-red-600">${reject.status}</span>
+                        <span class="status inline-block text-red-600 text-sm font-bold rounded px-3 py-1 bg-transparent border border-red-600">${reject.status}</span>
                         <p class="description text-sm text-gray-500 mb-5">${reject.description}</p>
                         <div class="flex gap-2">
-                            <button id="interview-btn-1" class="text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
-                            <button id="reject-btn-1" class="text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
+                            <button class="interview-btn text-green-600 text-sm rounded-md px-3 py-2 border border-green-600 hover:bg-green-900 hover:text-white ">Interview</button>
+                            <button class="reject-btn text-red-600 text-sm rounded-md px-3 py-2 border border-red-600 hover:bg-red-900 hover:text-white ">Rejected</button>
                         </div>
                 `
         filterSection.appendChild(div);
