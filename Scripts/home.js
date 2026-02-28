@@ -85,7 +85,7 @@ mainContainer.addEventListener('click', function (event) {
             renderRejected();
         }
     }
-    
+
     else if (event.target.classList.contains('reject-btn')) {
         const parentNode = event.target.parentNode.parentNode;
         const companyName = parentNode.querySelector('.company-name').innerText;
@@ -93,7 +93,7 @@ mainContainer.addEventListener('click', function (event) {
         const salary = parentNode.querySelector('.salary').innerText;
         const status = parentNode.querySelector('.status').innerText;
         const description = parentNode.querySelector('.description').innerText;
-        
+
         const cardInfo = {
             companyName,
             designation,
@@ -117,9 +117,19 @@ mainContainer.addEventListener('click', function (event) {
         if (currentStatus == "interview-filter-btn") {
             renderInterview();
         }
-        
     }
 })
+// else if (event.target.classList.contains('delete-btn')) {
+//     const parentNode = event.target.parentNode.parentNode;
+//     const deleteBtn = parentNode.querySelector('.company-name').innerText;
+
+//     interviewList = interviewList, filter(item => item.companyName != deleteBtn);
+//     rejectList = rejectList, filter(item => item.companyName != deleteBtn);
+
+//     calculateCards();
+//     if (currentStatus == "interview-filter-btn") renderInterview();
+//     if (currentStatus == "reject-filter-btn") renderRejected();
+// }
 function renderInterview() {
     filterSection.innerHTML = ''
 
